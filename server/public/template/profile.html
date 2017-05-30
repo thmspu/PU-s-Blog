@@ -1,0 +1,26 @@
+<div ng-controller="indexCtrl" class="container" class=" col-md-12">
+
+	<table  class="table col-md-12 ">
+		<tr>
+		<form>
+					<input type="text"  class="col-lg-7 col-md-7 col-sm-7 form-control" placeholder="name" name="email"  ng-model="form.email"/>
+					<input type="button" for="name" ng-click="add(form)" class=" btn btn-primary col-lg-1 col-md-1 col-sm-1" value="submit"/>
+					<input type="button" value="delete All" ng-click="deleteAll()" class="btn btn-primary col-lg-2 col-md-2 col-sm-2"/>
+			</form>
+		</tr>
+		<tr ng-repeat="obj in arr">
+			<td class="col-md-9 col-sm-9 col-xs-9">
+				<span ng-if="!isEditable[$index]">{{obj.email}}</span>
+				<input ng-model="obj.email" type="text" ng-if="isEditable[$index]"/>
+				<input type="button" value="confirm" class="btn" ng-if="isEditable[$index]" ng-click="confirm($index)"/>
+			</div>
+		</td>
+		<td class="col-md-3 col-sm-3 col-xs-3">
+			<div >
+				<input type="button" class="btn btn-info" value="edit" ng-click="edit($index)"/>
+				<span  ng-click="del(obj._id)" class="btn btn-warning ">delete</span>
+			</div></td>
+		</tr>
+	</table>
+	<span ng-if="arr.length == 0" class="warning">No Element!!</span>
+</div>
